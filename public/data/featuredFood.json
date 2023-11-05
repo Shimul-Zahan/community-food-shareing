@@ -1,146 +1,146 @@
 [
     {
-        "foodImage": "image_url_1.jpg",
+        "foodImage": "https://i.ibb.co/dcS0kk7/Hearty-Vegetable-Stew.jpg",
         "foodName": "Hearty Vegetable Stew",
-        "donator": {
-            "donatorImage": "donator_image_1.jpg",
-            "donatorName": "Alice Johnson"
-        },
+        "donatorImage": "donator_image_1.jpg",
+        "donatorName": "Alice Johnson",
+        "donorEmail": "alice@gamil.com",
         "quantity": 4,
         "pickupLocation": "123 Main Street",
         "expiredDate": "2023-11-15",
-        "additionalNotes": "Vegetarian"
+        "additionalNotes": "Vegetarian",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_2.jpg",
+        "foodImage": "https://i.imgur.com/nEed3LD.jpg",
         "foodName": "Nutritious Lentil Casserole",
-        "donator": {
-            "donatorImage": "donator_image_2.jpg",
-            "donatorName": "Bob Smith"
-        },
+        "donatorImage": "donator_image_2.jpg",
+        "donatorName": "Bob Smith",
+        "donorEmail": "bob@gamil.com",
         "quantity": 3,
         "pickupLocation": "456 Oak Avenue",
         "expiredDate": "2023-11-16",
-        "additionalNotes": "Gluten-free"
+        "additionalNotes": "Gluten-free",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_3.jpg",
+        "foodImage": "https://i.imgur.com/n71GV1a.jpg",
         "foodName": "Whole Grain Pasta Primavera",
-        "donator": {
-            "donatorImage": "donator_image_3.jpg",
-            "donatorName": "Eva Rodriguez"
-        },
+        "donatorImage": "donator_image_3.jpg",
+        "donatorName": "Eva Rodriguez",
+        "donorEmail": "eva@gamil.com",
         "quantity": 6,
         "pickupLocation": "789 Pine Lane",
         "expiredDate": "2023-11-14",
-        "additionalNotes": "Vegan"
+        "additionalNotes": "Vegan",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_4.jpg",
+        "foodImage": "https://i.imgur.com/AGpHBLe.jpg",
         "foodName": "Quinoa and Black Bean Salad",
-        "donator": {
-            "donatorImage": "donator_image_4.jpg",
-            "donatorName": "David Chang"
-        },
+        "donatorImage": "donator_image_4.jpg",
+        "donatorName": "David Chang",
+        "donorEmail": "shimul@gamil.com",
         "quantity": 2,
         "pickupLocation": "101 Cedar Street",
         "expiredDate": "2023-11-17",
-        "additionalNotes": "Protein-rich"
+        "additionalNotes": "Protein-rich",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_5.jpg",
+        "foodImage": "https://i.imgur.com/ang4EYE.jpg",
         "foodName": "Spicy Chickpea Curry",
-        "donator": {
-            "donatorImage": "donator_image_5.jpg",
-            "donatorName": "Grace Thompson"
-        },
+        "donatorImage": "donator_image_5.jpg",
+        "donatorName": "Grace Thompson",
+        "donorEmail": "shimul@gamil.com",
         "quantity": 5,
         "pickupLocation": "202 Elm Road",
         "expiredDate": "2023-11-18",
-        "additionalNotes": "Spicy"
+        "additionalNotes": "Spicy",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_6.jpg",
+        "foodImage": "https://i.ibb.co/LpBysvt/Fresh-Fruit-Medley.jpg",
         "foodName": "Fresh Fruit Medley",
-        "donator": {
-            "donatorImage": "donator_image_6.jpg",
-            "donatorName": "Michael Davis"
-        },
+        "donatorImage": "donator_image_6.jpg",
+        "donatorName": "Eva Rodriguez",
+        "donorEmail": "eva@gamil.com",
         "quantity": 8,
         "pickupLocation": "303 Maple Street",
         "expiredDate": "2023-11-19",
-        "additionalNotes": "No added sugar"
+        "additionalNotes": "No added sugar",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_7.jpg",
+        "foodImage": "https://i.ibb.co/khzqsQ0/Baked-Sweet-Potatoeswith-Herbs.jpg",
         "foodName": "Baked Sweet Potatoes with Herbs",
-        "donator": {
-            "donatorImage": "donator_image_7.jpg",
-            "donatorName": "Sarah White"
-        },
+        "donatorImage": "donator_image_7.jpg",
+        "donatorName": "Sarah White",
+        "donorEmail": "shimul@gamil.com",
         "quantity": 4,
         "pickupLocation": "456 Birch Lane",
         "expiredDate": "2023-11-20",
-        "additionalNotes": "Crispy"
+        "additionalNotes": "Crispy",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_8.jpg",
+        "foodImage": "https://i.ibb.co/8YZSZd7/Brown-Riceand-Vegetable-Stir-Fry.jpg",
         "foodName": "Brown Rice and Vegetable Stir-Fry",
-        "donator": {
-            "donatorImage": "donator_image_8.jpg",
-            "donatorName": "John Turner"
-        },
+        "donatorImage": "donator_image_8.jpg",
+        "donatorName": "Eva Rodriguez",
+        "donorEmail": "eva@gamil.com",
         "quantity": 3,
         "pickupLocation": "789 Oak Street",
         "expiredDate": "2023-11-21",
-        "additionalNotes": "Soy sauce infused"
+        "additionalNotes": "Soy sauce infused",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_9.jpg",
+        "foodImage": "https://i.ibb.co/rsBThCL/Grilled-Chicken-Wraps.jpg",
         "foodName": "Grilled Chicken Wraps",
-        "donator": {
-            "donatorImage": "donator_image_9.jpg",
-            "donatorName": "Olivia Martinez"
-        },
+        "donatorImage": "donator_image_9.jpg",
+        "donatorName": "Alice Johnson",
+        "donorEmail": "alice@gamil.com",
         "quantity": 6,
         "pickupLocation": "101 Maple Road",
         "expiredDate": "2023-11-22",
-        "additionalNotes": "Protein-packed"
+        "additionalNotes": "Protein-packed",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_10.jpg",
+        "foodImage": "https://i.imgur.com/qvYZ46G.jpg",
         "foodName": "Zesty Tomato Basil Soup",
-        "donator": {
-            "donatorImage": "donator_image_10.jpg",
-            "donatorName": "Daniel Adams"
-        },
+        "donatorImage": "donator_image_10.jpg",
+        "donatorName": "Alice Johnson",
+        "donorEmail": "alice@gamil.com",
         "quantity": 2,
         "pickupLocation": "202 Pine Avenue",
         "expiredDate": "2023-11-23",
-        "additionalNotes": "Tomato chunks"
+        "additionalNotes": "Tomato chunks",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_11.jpg",
+        "foodImage": "https://i.imgur.com/LGFfVZa.jpg",
         "foodName": "Mixed Berry Smoothie Bowls",
-        "donator": {
-            "donatorImage": "donator_image_11.jpg",
-            "donatorName": "Emily Wilson"
-        },
+        "donatorImage": "donator_image_11.jpg",
+        "donatorName": "Bob Smith",
+        "donorEmail": "bob@gamil.com",
         "quantity": 5,
         "pickupLocation": "303 Elm Lane",
         "expiredDate": "2023-11-24",
-        "additionalNotes": "Dairy-free"
+        "additionalNotes": "Dairy-free",
+        "status": "available"
     },
     {
-        "foodImage": "image_url_12.jpg",
+        "foodImage": "https://i.imgur.com/lkCqqbO.jpg",
         "foodName": "Spinach and Feta Stuffed Bell Peppers",
-        "donator": {
-            "donatorImage": "donator_image_12.jpg",
-            "donatorName": "Robert Miller"
-        },
+        "donatorImage": "donator_image_12.jpg",
+        "donatorName": "Bob Smith",
+        "donorEmail": "bob@gamil.com",
         "quantity": 8,
         "pickupLocation": "456 Cedar Road",
         "expiredDate": "2023-11-25",
-        "additionalNotes": "Mediterranean flavor"
+        "additionalNotes": "Mediterranean flavor",
+        "status": "available"
     }
 ]

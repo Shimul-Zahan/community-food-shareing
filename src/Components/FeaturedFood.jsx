@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const FeaturedFood = () => {
 
   const { data, isError, isLoading, refetch } = useFeaturesFoods();
-  console.log(data)
+  // console.log(data[0])
 
   if (isLoading) {
     return <div>Data Loading...</div>
@@ -16,7 +16,7 @@ const FeaturedFood = () => {
       <div className='flex justify-center items-between container mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-48'>
           {
-            data.slice(6)?.map(food =>
+            data.slice(0, 6)?.map(food =>
               <div key={food?._id} class="py-20 container mx-auto">
                 <div className="card card-compact w-96 bg-green-500 shadow-xl text-black">
 
@@ -35,7 +35,7 @@ const FeaturedFood = () => {
                             <img src="https://i.ibb.co/LpBysvt/Fresh-Fruit-Medley.jpg" />
                           </div>
                         </div>
-                        <h1 className='text-start text-2xl font-fontSecondary'>Donar: {food?.donator?.donatorName}</h1>
+                        <h1 className='text-start text-2xl font-fontSecondary'>Donar: {food?.donatorName}</h1>
 
                         <div className='text-2xl font-fontSecondary'>
                           <h1>Location: {food?.pickupLocation}</h1>

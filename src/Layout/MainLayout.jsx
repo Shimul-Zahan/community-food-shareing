@@ -1,9 +1,18 @@
-import React from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import './navlink.css'
 import logo from '../assets/images/logo.png'
+import { MyAuthContext } from '../Context/AuthContext'
 
 const MainLayout = ({ children }) => {
+
+    const { user, logOut } = useContext(MyAuthContext);
+    const logOutUser = () => {
+        logOut()
+            .then(res => console.log('successfully Logout User'))
+            .then(err => console.log(err));
+    }
+
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -41,9 +50,14 @@ const MainLayout = ({ children }) => {
                                 <NavLink to='/my-food-request'>
                                     <button>My Food Request</button>
                                 </NavLink>
-                                <NavLink to='/sign-up'>
-                                    <button>Sign Up</button>
-                                </NavLink>
+                                {
+                                    user ? <Link onClick={logOutUser}>
+                                        <button>Log Out</button>
+                                    </Link> :
+                                    <NavLink to='/sign-up'>
+                                        <button>Sign In</button>
+                                    </NavLink>
+                                }
                             </div>
                         </div>
                     </div>
@@ -71,9 +85,14 @@ const MainLayout = ({ children }) => {
                     <NavLink to='/my-food-request'>
                         <button>My Food Request</button>
                     </NavLink>
-                    <NavLink to='/sign-up'>
-                        <button>Sign Up</button>
-                    </NavLink>
+                    {
+                        user ? <Link onClick={logOutUser}>
+                            <button>Log Out</button>
+                        </Link> :
+                        <NavLink to='/sign-up'>
+                            <button>Sign In</button>
+                        </NavLink>
+                    }
                 </div>
             </div>
         </div>

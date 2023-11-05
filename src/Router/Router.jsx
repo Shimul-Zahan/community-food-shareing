@@ -10,6 +10,8 @@ import AvailavleFoods from '../Pages/AvailableFoods';
 import AddFood from '../Pages/AddFood';
 import Error from '../Pages/Error';
 import SingleFood from '../Pages/SingleFood';
+import RequestedFood from '../Pages/RequestedFood';
+import ManageFood from '../Pages/ManageFood';
 
 const router = createBrowserRouter([
     {
@@ -37,11 +39,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'manage-my-food',
-                element: <h1>manage-my-food</h1>
+                element: <ManageFood />
             },
             {
                 path: 'my-food-request',
-                element: <h1>my-food-request</h1>
+                element: <RequestedFood />
             },
         ]
     },
