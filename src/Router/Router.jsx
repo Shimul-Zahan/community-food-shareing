@@ -8,11 +8,14 @@ import Login from '../Pages/Login';
 import Registration from '../Pages/Registration';
 import AvailavleFoods from '../Pages/AvailableFoods';
 import AddFood from '../Pages/AddFood';
+import Error from '../Pages/Error';
+import SingleFood from '../Pages/SingleFood';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+        errorElement: <Error />,
         children: [
             {
                 path: '/',
@@ -24,7 +27,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/view-details/:id',
-                element: <h1>food-details</h1>
+                element: <SingleFood />,
+                loader: ({ params }) => fetch(`http://localhost:5000/view-details/${params.id}`),
+                // loader: ({ params }) => fetch(`http://localhost:5000/view-details/${params.id}`),
             },
             {
                 path: 'add-food',
