@@ -4,10 +4,12 @@ import Lottie from 'lottie-react'
 import bg from '../assets/images/donation-image.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const AddFood = () => {
 
     const { user } = useContext(MyAuthContext);
+    const navigate = useNavigate();
 
     const handleAddFood = async (e) => {
         e.preventDefault();
@@ -25,6 +27,10 @@ const AddFood = () => {
         const food = { foodImage, foodName, quantity: parseInt(quantity), pickupLocation, expiredDate, additionalNotes, status, donatorImage, donatorName, donorEmail }
         const res = await axios.post('http://localhost:5000/add-food', food)
         console.log(res.data);
+        if (res.data.acknowledged) {
+            e.target.reset();
+            navigate('/');
+        }
     }
 
     return (

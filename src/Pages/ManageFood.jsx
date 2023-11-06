@@ -7,11 +7,16 @@ import { MdDeleteForever } from 'react-icons/md';
 const ManageFood = () => {
 
     const navigate = useNavigate();
-    const { data, isLoading, refetch } = useManageFood();
+    const { data, isLoading, isFetching, refetch } = useManageFood();
 
     if (isLoading) {
         return <div>Loading</div>;
     }
+
+    // if (isLoading) {
+    //     return <div>Loading</div>;
+    // }
+    // console.log("loading",isLoading, "fetching", isFetching)
 
     const manageFoodNow = (id) => {
         navigate(`/manage-single-food/${id}`);

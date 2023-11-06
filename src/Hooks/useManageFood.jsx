@@ -7,7 +7,8 @@ const useManageFood = () => {
 
     const { user } = useContext(MyAuthContext);
 
-    const { data, isLoading, refetch } = useQuery({
+    const { data, isLoading, isFetching, refetch } = useQuery({
+        enabled: !!user?.email,
         queryKey: ["Manage Food"],
         queryFn: async () => {
             const res = await axios.get(`http://localhost:5000/manage-foods?email=${user?.email}`)
