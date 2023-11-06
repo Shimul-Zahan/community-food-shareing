@@ -26,7 +26,7 @@ const AddFood = () => {
 
         const food = { foodImage, foodName, quantity: parseInt(quantity), pickupLocation, expiredDate, additionalNotes, status, donatorImage, donatorName, donorEmail }
         const res = await axios.post('http://localhost:5000/add-food', food)
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.acknowledged) {
             e.target.reset();
             navigate('/');

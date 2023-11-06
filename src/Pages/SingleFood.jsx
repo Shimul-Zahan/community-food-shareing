@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { useLoaderData, useParams } from 'react-router-dom'
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import banner from '../assets/images/bg-image/assorted-different-dishes-black-surface-dining-table-with-burgers-cream-soups-wok-noodles-cole-slaw-salad-grilled-corn-top-view-food-flat-lay.jpg'
 import cover from '../assets/images/bg-image/top-view-burguer-vs-fruit.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
@@ -8,8 +8,8 @@ import { MyAuthContext } from '../Context/AuthContext'
 const SingleFood = () => {
 
   const food = useLoaderData();
-  // console.log(food);
   const { user } = useContext(MyAuthContext);
+  const navigate= useNavigate()
 
   const handleSingleFood = async (e) => {
     e.preventDefault();
@@ -19,6 +19,8 @@ const SingleFood = () => {
     const foodId = form.id.value;
     const donorEmail = form.donorEmail.value;
     const userEmail = form.userEmail.value;
+    const requesterName = user?.displayName;
+    const requesterImage = user?.photoURL;
     const donorName = form.donorName.value;
     const requestDate = form.date.value;
     const pickUpLocation = form.pickUpLocation.value;
@@ -26,12 +28,15 @@ const SingleFood = () => {
     const additionalInfo = form.additionalInfo.value;
     const donation = form.donation.value;
     const status = food?.status;
+    const deliverInfo = 'pending';
 
-    const requestFood = { foodName, foodImage, foodId, donorEmail, donorName, userEmail, requestDate, pickUpLocation, expiredDate, additionalInfo, donation, status }
+    const requestFood = { foodName, foodImage, foodId, donorEmail, donorName, userEmail, requesterName, requesterImage, requestDate, pickUpLocation, expiredDate, additionalInfo, donation, status, deliverInfo }
     
     const res = await axios.post('http://localhost:5000/requested-foods', requestFood)
-    console.log(res.data);
-
+    if (res.data.acknowledged) {
+            e.target.reset();
+            navigate('/my-food-request');
+        }
   }
 
 
@@ -86,7 +91,7 @@ const SingleFood = () => {
                 className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4"
               >
                 <dt className="font-medium text-gray-900">Donors Name:</dt>
-                <dd className="text-gray-700 sm:col-span-2">{food?.donator?.donatorName}</dd>
+                <dd className="text-gray-700 sm:col-span-2">{food?.donatorName}</dd>
               </div>
 
               <div
@@ -129,7 +134,7 @@ const SingleFood = () => {
               <div className="grid md:grid-cols-2 md:gap-6">
                 <div className="relative z-0 w-full mb-6 group">
                   <input type="text" value={user?.email} name="userEmail" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required disabled />
-                  <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"> User Email
+                  <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"> Requester Email
                   </label>
                 </div>
                 <div className="relative z-0 w-full mb-6 group">
@@ -159,7 +164,7 @@ const SingleFood = () => {
                   <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 focus:border-black">Additional Notes</label>
                 </div>
                 <div className="relative z-0 w-full mb-6 group">
-                  <input type="text" name="donation" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required />
+                  <input type="text" name="donation" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-white peer" placeholder=" " required />
                   <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Donation Money</label>
                 </div>
               </div>

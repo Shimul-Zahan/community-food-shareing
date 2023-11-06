@@ -13,10 +13,9 @@ const ManageFood = () => {
         return <div>Loading</div>;
     }
 
-    // if (isLoading) {
-    //     return <div>Loading</div>;
-    // }
-    // console.log("loading",isLoading, "fetching", isFetching)
+    if (isLoading) {
+        return <div>Loading</div>;
+    }
 
     const manageFoodNow = (id) => {
         navigate(`/manage-single-food/${id}`);
