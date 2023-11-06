@@ -18,8 +18,6 @@ const ManageSingleFood = () => {
         return <div>Loading Data...</div>
     }
 
-    // console.log(data);
-
     return (
         <div className='container mx-auto'>
             {

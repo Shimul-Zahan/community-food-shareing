@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useFeaturesFoods from '../Hooks/useFeaturesFoods'
 import { Link, useNavigate } from 'react-router-dom';
 import banner from '../assets/images/diverse-people-shoot.jpg'
+import { AiOutlineSearch } from 'react-icons/ai';
+import { BiMicrophone } from 'react-icons/bi';
+import axios from 'axios';
 
 const AvailavleFoods = () => {
 
     const { data, isError, isLoading, refetch } = useFeaturesFoods();
+    const [foods, setFoods] = useState();
+    const [input, setInput] = useState('');
+
+    useEffect(() => {
+        setFoods(data)
+    }, [isLoading])
+
+    // console.log(foods)
 
     if (isLoading) {
         return <div>Data Loading...</div>
+    }
+
+    const search = async (e) => {
+        const res = await axios.get(`http://localhost:5000/avaiable-foods?search=${input}`)
+        setFoods(res.data);
+        setInput('');
+
     }
 
     return (
@@ -17,10 +35,23 @@ const AvailavleFoods = () => {
                 <img src={banner} alt="" className='w-full lg:h-[500px] opacity-100' />
                 <h1 className='lg:text-7xl text-white font-fontPrimary font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>Available food Here</h1>
             </div>
+
+            <div className='flex justify-center items-center bg-black h-[100px]'>
+                <div className='text-center mt-10 h-12 w-full lg:w-[500px] relative border-2 border-black rounded-2xl'>
+                    <BiMicrophone className='absolute top-2 left-2 text-3xl' />
+                    <input type="text" onChange={(e) => setInput(e.target.value)} value={input} placeholder='Type any food name here...' className='h-11 rounded-2xl lg:w-[495px] px-16 border-none outline-none' />
+                    <AiOutlineSearch onClick={search} className='absolute top-2 right-2 text-3xl z-10' />
+                </div>
+                <select className="select select-bordered w-full max-w-xs">
+                    <option disabled selected>Sort by</option>
+                    <option>Ascending</option>
+                    <option>Descending</option>
+                </select>
+            </div>
             <div className='flex justify-center items-between container mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-48'>
                     {
-                        data?.map(food =>
+                        foods?.map(food =>
                             <div key={food?._id} class="py-20 container mx-auto">
                                 <div className="card card-compact w-96 bg-green-500 shadow-xl text-black">
 
@@ -38,7 +69,7 @@ const AvailavleFoods = () => {
                                                     <img src="https://i.ibb.co/LpBysvt/Fresh-Fruit-Medley.jpg" />
                                                 </div>
                                             </div>
-                                            <h1 className='text-start text-2xl font-fontSecondary'>Donar: {food?.donator?.donatorName}</h1>
+                                            <h1 className='text-start text-2xl font-fontSecondary'>Donar: {food?.donatorName}</h1>
 
                                             <div className='text-2xl font-fontSecondary'>
                                                 <h1>Location: {food?.pickupLocation}</h1>
