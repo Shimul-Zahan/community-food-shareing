@@ -1,15 +1,20 @@
-import React from 'react'
+import { React } from 'react'
+import { useNavigate } from "react-router-dom";
 import useManageFood from '../Hooks/useManageFood'
 import { FaEdit } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 
 const ManageFood = () => {
 
+    const navigate = useNavigate();
     const { data, isLoading, refetch } = useManageFood();
-    console.log(data);
 
     if (isLoading) {
         return <div>Loading</div>;
+    }
+
+    const manageFoodNow = (id) => {
+        navigate(`/manage-single-food/${id}`);
     }
 
     return (
@@ -22,6 +27,7 @@ const ManageFood = () => {
                             <th>Food Details</th>
                             <th>My Information</th>
                             <th>Food Status</th>
+                            <th>Manage Single Food</th>
                             <th>Manage Food</th>
                         </tr>
                     </thead>
@@ -49,7 +55,11 @@ const ManageFood = () => {
                                         <h1 className="badge badge-ghost badge-sm">{food?.donorEmail }</h1>
                                     </td>
 
-                                    <td className='text-red-600 font-bold'>{food?.expiredDate }</td>
+                                    <td className='text-red-600 font-bold'>{food?.expiredDate}</td>
+                                    
+                                    <td >
+                                        <button onClick={() => manageFoodNow(food?._id)} className='btn font-fontSecondary capitalize text-xl'>Manage Food Now</button>
+                                    </td>
 
                                     <th>
                                         <button className="btn btn-ghost btn-lg">

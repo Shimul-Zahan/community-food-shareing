@@ -12,6 +12,7 @@ import Error from '../Pages/Error';
 import SingleFood from '../Pages/SingleFood';
 import RequestedFood from '../Pages/RequestedFood';
 import ManageFood from '../Pages/ManageFood';
+import ManageSingleFood from '../Pages/ManageSingleFood';
 
 const router = createBrowserRouter([
     {
@@ -24,36 +25,41 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: 'available-food',
+                path: '/available-food',
                 element: <AvailavleFoods />
             },
             {
                 path: '/view-details/:id',
                 element: <SingleFood />,
                 loader: ({ params }) => fetch(`http://localhost:5000/view-details/${params.id}`),
-                // loader: ({ params }) => fetch(`http://localhost:5000/view-details/${params.id}`),
             },
             {
-                path: 'add-food',
+                path: '/add-food',
                 element: <AddFood />
             },
             {
-                path: 'manage-my-food',
+                path: '/manage-my-food',
                 element: <ManageFood />
             },
             {
-                path: 'my-food-request',
+                path: '/manage-single-food/:id',
+                element: <ManageSingleFood />,
+                // loader: ({ params }) => fetch(`http://localhost:5000/manage-single-food/${params.id}`),
+                // loader: ({ params }) => fetch(`http://localhost:5000/manage-single-food/{params.id}`)
+            },
+            {
+                path: '/my-food-request',
                 element: <RequestedFood />
             },
+            {
+                path: '/sign-up',
+                element: <Login />
+            },
+            {
+                path: '/register',
+                element: <Registration />
+            },
         ]
-    },
-    {
-        path: '/sign-up',
-        element: <Login />
-    },
-    {
-        path: '/register',
-        element: <Registration />
     },
 ])
 
