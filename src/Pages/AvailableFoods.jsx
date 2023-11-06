@@ -29,6 +29,11 @@ const AvailavleFoods = () => {
 
     }
 
+    const handleSort = async (e) => {
+        const res = await axios.get(`http://localhost:5000/avaiable-food?sort=${e.target.value}`)
+        setFoods(res.data);
+    }
+
     return (
         <div className='mb-20'>
             <div className='relative'>
@@ -36,17 +41,19 @@ const AvailavleFoods = () => {
                 <h1 className='lg:text-7xl text-white font-fontPrimary font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>Available food Here</h1>
             </div>
 
-            <div className='flex justify-center items-center bg-black h-[100px]'>
+            <div className='flex justify-center items-center gap-5'>
                 <div className='text-center mt-10 h-12 w-full lg:w-[500px] relative border-2 border-black rounded-2xl'>
                     <BiMicrophone className='absolute top-2 left-2 text-3xl' />
                     <input type="text" onChange={(e) => setInput(e.target.value)} value={input} placeholder='Type any food name here...' className='h-11 rounded-2xl lg:w-[495px] px-16 border-none outline-none' />
                     <AiOutlineSearch onClick={search} className='absolute top-2 right-2 text-3xl z-10' />
                 </div>
-                <select className="select select-bordered w-full max-w-xs">
-                    <option disabled selected>Sort by</option>
-                    <option>Ascending</option>
-                    <option>Descending</option>
-                </select>
+                <div className='mt-10'>
+                    <select onChange={handleSort} className="select select-bordered border-black w-full max-w-xs text-lg">
+                        <option disabled selected>Sort by</option>
+                        <option value='descending'>Descending</option>
+                        <option value='ascending'>Ascending</option>
+                    </select>
+                </div>
             </div>
             <div className='flex justify-center items-between container mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-48'>
