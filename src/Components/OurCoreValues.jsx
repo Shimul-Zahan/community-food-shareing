@@ -31,6 +31,9 @@ const OurCoreValues = () => {
                     <p className='text-xl font-fontSecondary'>We join hands with partner agencies and community members, working together to enhance our ability to receive, store, and distribute food. Through collaboration, we stand strong in our fight against hunger.</p>
                 </div>
             </div>
+            <div className='container mx-auto'>
+                <h1 className='text-2xl md:text-7xl font-bold text-green-600 font-fontSecondary text-center mt-2'>Our Core Concepts</h1>
+            </div>
 
         </div>
     )

@@ -68,7 +68,7 @@ const MainLayout = ({ children }) => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                <div className="menu p-4 w-80 min-h-full bg-base-200 space-y-5">
+                <div className="menu p-4 w-80 min-h-full space-y-5 bg-green-600">
                     {/* Sidebar content here */}
                     <NavLink to='/'>
                         <button>Home</button>

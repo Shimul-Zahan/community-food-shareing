@@ -55,8 +55,8 @@ const RequestedFood = () => {
                                     <h1 className='text-red-600'>Expired Date: {food?.expiredDate}</h1>
                                     <h1>Requested Date: {food?.requestDate}</h1>
                                 </div>
-                                <div className='space-y-3 lg:text-lg'>
-                                    <h1 className={`${food?.status === 'available' ? 'text-green-600' : 'text-red-600'} font-bold`}>Status: {food?.status}</h1>
+                                <div className='space-y-3 text-base lg:text-lg'>
+                                    <h1 className={`${food?.status === 'available' ? 'text-green-600' : 'text-red-600'} font-bold text-sm lg:text-lg`}>Status: {food?.status}</h1>
                                     <button onClick={() => cancelRequest(food?._id)} className='btn btn-warning text-base bg-red-500 text-white font-thin capitalize'>Cancel Request</button>
                                 </div>
                             </div>
