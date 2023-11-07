@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react'
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import regiAnimation from '../assets/images/regi-animation.json'
 import bg from '../assets/images/regi-2.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
@@ -10,6 +10,7 @@ import { updateProfile } from 'firebase/auth'
 const Registration = () => {
 
     const { emailCreateUser, googleLogin } = useContext(MyAuthContext);
+    const navigate = useNavigate();
 
     const handleRegi = e => {
         e.preventDefault();
@@ -27,7 +28,7 @@ const Registration = () => {
                     displayName: name,
                     photoURL: image
                 })
-                // console.log(user)
+                navigate('/');
             })
             .then(err => console.log(err))
 
@@ -35,7 +36,7 @@ const Registration = () => {
 
     const googleSignIn = () => {
         googleLogin()
-            .then(res => console.log(res.user))
+            .then(res => navigate())
             .then(err => console.log(err));
     }
 

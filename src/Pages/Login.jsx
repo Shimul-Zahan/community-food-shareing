@@ -1,13 +1,14 @@
 import Lottie from 'lottie-react'
 import React, { useContext } from 'react'
 import loginAnimation from '../assets/images/login-animation.json'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import bg from '../assets/images/logi.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
 
 const Login = () => {
 
     const { emailLogin, googleLogin } = useContext(MyAuthContext);
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -18,6 +19,7 @@ const Login = () => {
         emailLogin(email, password)
             .then(res => {
                 const user = res.user;
+                navigate('/');
                 console.log(user);
             })
             .then(err => console.log(err))
@@ -26,7 +28,7 @@ const Login = () => {
 
     const googleSignIn = () => {
         googleLogin()
-            .then(res => console.log(res.user))
+            .then(res => navigate('/'))
             .then(err => console.log(err));
     }
 

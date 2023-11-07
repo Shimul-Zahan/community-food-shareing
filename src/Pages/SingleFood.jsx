@@ -9,7 +9,7 @@ const SingleFood = () => {
 
   const food = useLoaderData();
   const { user } = useContext(MyAuthContext);
-  const navigate= useNavigate()
+  const navigate = useNavigate()
 
   const handleSingleFood = async (e) => {
     e.preventDefault();
@@ -28,15 +28,19 @@ const SingleFood = () => {
     const additionalInfo = form.additionalInfo.value;
     const donation = form.donation.value;
     const status = food?.status;
-    const deliverInfo = 'pending';
 
-    const requestFood = { foodName, foodImage, foodId, donorEmail, donorName, userEmail, requesterName, requesterImage, requestDate, pickUpLocation, expiredDate, additionalInfo, donation, status, deliverInfo }
-    
+    const requestFood = { foodName, foodImage, foodId, donorEmail, donorName, userEmail, requesterName, requesterImage, requestDate, pickUpLocation, expiredDate, additionalInfo, donation, status }
+
     const res = await axios.post('http://localhost:5000/requested-foods', requestFood)
     if (res.data.acknowledged) {
-            e.target.reset();
-            navigate('/my-food-request');
-        }
+      e.target.reset();
+      Swal.fire({
+        title: "Booyah!!!",
+        text: "Your request has been sent.",
+        icon: "success"
+      });
+      navigate('/my-food-request');
+    }
   }
 
 
@@ -116,19 +120,19 @@ const SingleFood = () => {
             </form>
             <form onSubmit={handleSingleFood} className='text-xl'>
               <div className="relative z-0 w-full mb-6 group">
-                <input type="text" value={ food?.foodName} name="foodName" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer" pgreenholder=" " required disabled />
+                <input type="text" value={food?.foodName} name="foodName" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-white peer" pgreenholder=" " required disabled />
                 <label class="peer-focus:font-medium absolute text-2xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Food Name</label>
               </div>
               <div className="relative z-0 w-full mb-6 group">
-                <input type="text" value={food?.foodImage}  name="imageURL" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
+                <input type="text" value={food?.foodImage} name="imageURL" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
                 <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Food Image</label>
               </div>
               <div className="relative z-0 w-full mb-6 group">
-                <input type="text" value={food?._id}  name="id" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
+                <input type="text" value={food?._id} name="id" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
                 <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Food Id</label>
               </div>
               <div className="relative z-0 w-full mb-6 group">
-                <input type="text" value={food?.donorEmail}  name="donorEmail" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
+                <input type="text" value={food?.donorEmail} name="donorEmail" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
                 <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Food Donor Email</label>
               </div>
               <div className="grid md:grid-cols-2 md:gap-6">
@@ -138,7 +142,7 @@ const SingleFood = () => {
                   </label>
                 </div>
                 <div className="relative z-0 w-full mb-6 group">
-                  <input type="text" value={food?.donatorName} name="donorName"  class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
+                  <input type="text" value={food?.donatorName} name="donorName" class="block py-2.5 px-0 w-full text-xl font-fontPrimary text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:bordgreenlue-600 peer" placeholder=" " required disabled />
                   <label class="peer-focus:font-medium absolute text-xl font-fontPrimary text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Food Donor Name</label>
                 </div>
               </div>
