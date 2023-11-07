@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { flexRender, useReactTable, getCoreRowModel, createColumnHelper } from '@tanstack/react-table'
 import useManageFood from '../Hooks/useManageFood'
 import { FaEdit } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 const columnHelper = createColumnHelper();
 const columns = [
@@ -41,8 +42,9 @@ const columns = [
 
 const ReactTable = () => {
 
-    const { data } = useManageFood();
+    const { data, refetch } = useManageFood();
     const navigate = useNavigate();
+    const [food, updatedFood] = useState(null);
 
     const table = useReactTable({
         data,
@@ -51,23 +53,39 @@ const ReactTable = () => {
     })
 
     const manageFood = (id) => {
-        console.log('manage clicked', id)
         navigate(`/manage-single-food/${id}`)
     }
     const updateFood = (id) => {
-        console.log('update clicked', id)
+        navigate(`/update-single-food/${id}`)
     }
     const deleteFood = async (id) => {
-        console.log('delete clicked', id)
-        const res = axios.delete(`http://localhost:5000/delete-food/${id}`)
-        console.log(await res.data)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log('delete clicked', id)
+                const res = axios.delete(`http://localhost:5000/delete-food/${id}`)
+                refetch();
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
     }
 
 
     return (
         <div className='container mx-auto mb-10'>
             {
-                data && <table className='w-full'>
+                data && <table className='w-[200px] lg:w-full'>
                     <thead>
                         {
                             table.getHeaderGroups().map(headerGroup => (
