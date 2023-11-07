@@ -14,6 +14,7 @@ import RequestedFood from '../Pages/RequestedFood';
 import ManageFood from '../Pages/ManageFood';
 import ManageSingleFood from '../Pages/ManageSingleFood';
 import UpdateFood from '../Pages/UpdateFood';
+import PrivateRoute from '../Context/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -31,28 +32,28 @@ const router = createBrowserRouter([
             },
             {
                 path: '/view-details/:id',
-                element: <SingleFood />,
+                element: <PrivateRoute><SingleFood /></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/view-details/${params.id}`),
             },
             {
                 path: '/add-food',
-                element: <AddFood />
+                element: <PrivateRoute><AddFood /></PrivateRoute>
             },
             {
                 path: '/manage-my-food',
-                element: <ManageFood />
+                element: <PrivateRoute><ManageFood /></PrivateRoute>
             },
             {
                 path: '/manage-single-food/:id',
-                element: <ManageSingleFood />,
+                element: <PrivateRoute><ManageSingleFood /></PrivateRoute>,
             },
             {
                 path: '/update-single-food/:id',
-                element: <UpdateFood />,
+                element: <PrivateRoute><UpdateFood /></PrivateRoute>,
             },
             {
                 path: '/my-food-request',
-                element: <RequestedFood />
+                element: <PrivateRoute><RequestedFood /></PrivateRoute>
             },
             {
                 path: '/sign-up',

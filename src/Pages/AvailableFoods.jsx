@@ -73,7 +73,7 @@ const AvailavleFoods = () => {
                                         <div className=''>
                                             <div className="avatar absolute -top-10 bg-white rounded-full p-1 right-2">
                                                 <div className="w-16 rounded-full">
-                                                    <img src="https://i.ibb.co/LpBysvt/Fresh-Fruit-Medley.jpg" />
+                                                    <img src={food?.donatorImage} />
                                                 </div>
                                             </div>
                                             <h1 className='text-start text-2xl font-fontSecondary'>Donar: {food?.donatorName}</h1>

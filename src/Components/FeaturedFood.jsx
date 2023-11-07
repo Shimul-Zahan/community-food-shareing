@@ -14,7 +14,7 @@ const FeaturedFood = () => {
   return (
     <div className='my-20'>
       <div className='flex justify-center items-between container mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-48'>
+        <div className='grid grid-cols-1 md:grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-x-48'>
           {
             data.slice(0, 6)?.map(food =>
               <div key={food?._id} class="py-20 container mx-auto">
@@ -32,7 +32,7 @@ const FeaturedFood = () => {
                       <div className=''>
                         <div className="avatar absolute -top-10 bg-white rounded-full p-1 right-2">
                           <div className="w-16 rounded-full">
-                            <img src="https://i.ibb.co/LpBysvt/Fresh-Fruit-Medley.jpg" />
+                            <img src={food?.donatorImage} />
                           </div>
                         </div>
                         <h1 className='text-start text-2xl font-fontSecondary'>Donar: {food?.donatorName}</h1>
