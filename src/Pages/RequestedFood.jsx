@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import useMyFoodRequest from '../Hooks/useMyFoodRequest'
+import { MyAuthContext } from '../Context/AuthContext';
 
 const RequestedFood = () => {
 
     const { data, isLoading, refetch } = useMyFoodRequest();
+    const { user } = useContext(MyAuthContext);
     // console.log(data)
     if (isLoading) {
         return <div>Loading Data...</div>
@@ -11,6 +13,7 @@ const RequestedFood = () => {
 
     return (
         <div>
+            <h1 className='text-center text-5xl font-fontSecondary font-bold my-10'>Hello Mr. {user?.displayName} here your all shared food.</h1>
             <div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 pt-10'>
                 {
                     data?.map(food =>

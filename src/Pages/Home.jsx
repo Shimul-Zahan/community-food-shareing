@@ -8,7 +8,6 @@ const Home = () => {
     <div>
       <Banner />
       <FeaturedFood />
-      <ReactTable />
     </div>
   )
 }
