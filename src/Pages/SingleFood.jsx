@@ -4,6 +4,7 @@ import { useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import banner from '../assets/images/bg-image/assorted-different-dishes-black-surface-dining-table-with-burgers-cream-soups-wok-noodles-cole-slaw-salad-grilled-corn-top-view-food-flat-lay.jpg'
 import cover from '../assets/images/bg-image/top-view-burguer-vs-fruit.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
+import { Helmet } from 'react-helmet'
 
 const SingleFood = () => {
 
@@ -47,7 +48,10 @@ const SingleFood = () => {
   return (
 
     <div className=''>
-
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Feeding Neighbour | Food details</title>
+      </Helmet>
       <div className='relative'>
         <img src={banner} alt="" className='w-full lg:h-[500px] opacity-100' />
         <h1 className='lg:text-7xl text-center text-green-600 font-fontPrimary font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>Your Selected Food Details Here</h1>

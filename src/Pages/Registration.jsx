@@ -5,6 +5,7 @@ import regiAnimation from '../assets/images/regi-animation.json'
 import bg from '../assets/images/regi-2.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
 import { updateProfile } from 'firebase/auth'
+import { Helmet } from 'react-helmet'
 
 
 const Registration = () => {
@@ -42,6 +43,10 @@ const Registration = () => {
 
     return (
         <div className='min-h-screen bg-white bg-blend-overlay bg-opacity-80' style={{ backgroundImage: `url('${bg}')`, backgroundSize: 'cover' }}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Feeding Neighbour | Registrition</title>
+            </Helmet>
             <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col lg:gap-20 lg:flex-row items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <div className=''>

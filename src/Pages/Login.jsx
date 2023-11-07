@@ -4,6 +4,7 @@ import loginAnimation from '../assets/images/login-animation.json'
 import { Link, useNavigate } from 'react-router-dom'
 import bg from '../assets/images/logi.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
+import { Helmet } from 'react-helmet'
 
 const Login = () => {
 
@@ -33,7 +34,11 @@ const Login = () => {
     }
 
     return (
-        <div className='min-h-screen bg-white bg-blend-overlay bg-opacity-80' style={{ backgroundImage: `url('${bg}')`, backgroundSize: 'cover'  }}>
+        <div className='min-h-screen bg-white bg-blend-overlay bg-opacity-80' style={{ backgroundImage: `url('${bg}')`, backgroundSize: 'cover' }}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Feeding Neighbour | Sign in</title>
+            </Helmet>
             <section className=" dark:bg-gray-900">
                 <div className="flex flex-col lg:gap-20 lg:flex-row items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <div className=''>

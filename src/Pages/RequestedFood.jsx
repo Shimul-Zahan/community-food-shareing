@@ -4,6 +4,7 @@ import { MyAuthContext } from '../Context/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const RequestedFood = () => {
 
@@ -41,6 +42,10 @@ const RequestedFood = () => {
 
     return (
         <div className='min-h-screen'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Feeding Neighbour | Requested food</title>
+            </Helmet>
             <h1 className='text-center text-5xl font-fontSecondary font-bold my-10'>Hello Mr. {user?.displayName} here your all requested food.</h1>
             <div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 pt-10'>
                 {

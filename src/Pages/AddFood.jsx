@@ -6,6 +6,7 @@ import { MyAuthContext } from '../Context/AuthContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet'
 
 const AddFood = () => {
 
@@ -41,7 +42,11 @@ const AddFood = () => {
 
     return (
 
-        <div className='py-10 px-4 bg-black bg-blend-overlay bg-opacity-90' style={{ backgroundImage: `url('${bg}')`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <div className='py-10 px-4 bg-black bg-blend-overlay bg-opacity-90' style={{ backgroundImage: `url('${bg}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Feeding Neighbour | Add food</title>
+            </Helmet>
             <div className='flex justify-center items-center'>
                 <Lottie animationData={animation} className='w-[300px]'></Lottie>
             </div>

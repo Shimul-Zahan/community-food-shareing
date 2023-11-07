@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useFeaturesFoods from '../Hooks/useFeaturesFoods';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const UpdateFood = () => {
 
@@ -50,6 +51,10 @@ const UpdateFood = () => {
 
     return (
         <div className='min-h-screen bg-opacity-90 bg-blend-overlay bg-black' style={{ backgroundImage: `url('${bg}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Feeding Neighbour | Update food</title>
+            </Helmet>
             <h1 className='text-center lg:text-5xl font-fontSecondary font-bold my-10 text-white'>Hello Mr. {user?.displayName} update your food.</h1>
 
             <div className='w-full lg:w-[800px] mx-auto mt-10 p-2'>

@@ -1,9 +1,14 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 const Error = () => {
     return (
 
         <div className="grid h-screen px-4 bg-white place-content-center">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>error</title>
+            </Helmet>
             <div className="text-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

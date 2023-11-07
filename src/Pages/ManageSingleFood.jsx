@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { MyAuthContext } from '../Context/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const ManageSingleFood = () => {
 
@@ -52,6 +53,10 @@ const ManageSingleFood = () => {
     // console.log(data)
     return (
         <div className='container mx-auto'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Feeding Neighbour | Manage single food</title>
+            </Helmet>
             {
                 data.length !== 0 && data?.status == 'available' ?
                     <div>
