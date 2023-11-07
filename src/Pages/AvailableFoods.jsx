@@ -43,9 +43,9 @@ const AvailavleFoods = () => {
 
             <div className='flex justify-center items-center gap-5'>
                 <div className='text-center mt-10 h-12 w-full lg:w-[500px] relative border-2 border-black rounded-2xl'>
-                    <BiMicrophone className='absolute top-2 left-2 text-3xl' />
+                    <BiMicrophone className='absolute top-2 left-2 text-3xl cursor-pointer' />
                     <input type="text" onChange={(e) => setInput(e.target.value)} value={input} placeholder='Type any food name here...' className='h-11 rounded-2xl lg:w-[495px] px-16 border-none outline-none' />
-                    <AiOutlineSearch onClick={search} className='absolute top-2 right-2 text-3xl z-10' />
+                    <AiOutlineSearch onClick={search} className='absolute top-2 right-2 text-3xl z-10 cursor-pointer' />
                 </div>
                 <div className='mt-10'>
                     <select onChange={handleSort} className="select select-bordered border-black w-full max-w-xs text-lg">
