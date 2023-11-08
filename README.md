@@ -1,8 +1,14 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Feeding Neighbour
+# Live site link: https://community-food-sharing-36bb7.web.app/ 
+# Some features of my site
+* Any user can share food if he/she logged in
+* User can see details of indivisual food 
+* Here is food request system 
+* Here is food sharing system 
+* A user can see only his/her resquested/shared food
+* User can manage only his food like: delete, update, change state if delivered
+* Site only show the avaiable status food
+* Here is a sorting and serching function
+* User can search a food using food name or any alphabate is it's exist
+* Backend has a strong Json Web Security
+* Every work done its show you a marvelous toast message

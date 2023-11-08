@@ -53,7 +53,9 @@ const FeaturedFood = () => {
                     </div>
 
                     <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100">
-                      <button class="bg-green-600 text-white py-3 px-6 rounded-full text-xl font-fontSecondary">View Details</button>
+                      <button className="bg-green-600 text-white py-3 px-6 rounded-full text-xl font-fontSecondary">
+                        <Link to={`/view-details/${food?._id}`}>View Details</Link>
+                      </button>
                     </div>
                   </div>
 
