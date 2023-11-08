@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import bg from '../assets/images/logi.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
 import { Helmet } from 'react-helmet'
+import axios from 'axios'
 
 const Login = () => {
 
@@ -21,7 +22,7 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 navigate('/');
-                console.log(user);
+                // console.log(user);
             })
             .then(err => console.log(err))
 
