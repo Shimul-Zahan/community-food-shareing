@@ -37,15 +37,15 @@ const AuthContext = ({ children }) => {
             setLoading(false)
 
             const email = currentUser?.email || user?.email;
-            const loggedUser = {email: email};
+            const loggedUser = { email: email };
 
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', (loggedUser), {withCredentials: true})
+                axios.post('https://food-shareing-serversite.vercel.app/jwt', (loggedUser), { withCredentials: true })
                     .then(res => {
                         console.log("token ", res.data)
                     });
             } else {
-                axios.post('http://localhost:5000/logout', (loggedUser), { withCredentials: true })
+                axios.post('https://food-shareing-serversite.vercel.app/logout', (loggedUser), { withCredentials: true })
                     .then(res => {
                         console.log("token ", res.data)
                     });
@@ -58,7 +58,7 @@ const AuthContext = ({ children }) => {
     })
 
     // console.log(user)
-    
+
     const contextValue = {
         user,
         loading,

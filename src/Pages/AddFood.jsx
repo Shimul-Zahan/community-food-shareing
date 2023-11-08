@@ -27,7 +27,7 @@ const AddFood = () => {
         const donorEmail = user?.email;
 
         const food = { foodImage, foodName, quantity: parseInt(quantity), pickupLocation, expiredDate, additionalNotes, status, donatorImage, donatorName, donorEmail }
-        const res = await axios.post('http://localhost:5000/add-food', food)
+        const res = await axios.post('https://food-shareing-serversite.vercel.app/add-food', food)
         // console.log(res.data);
         if (res.data.acknowledged) {
             e.target.reset();
@@ -63,7 +63,7 @@ const AddFood = () => {
                     <div className="relative z-0 w-full mb-6 group">
                         <input type="text" name="foodQuantity" class="block py-2.5 px-0 w-full text-lg font-fontPrimary text-green-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required />
                         <label class="peer-focus:font-medium absolute text-lg font-fontPrimary text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"> Food Quantity
-</label>
+                        </label>
                     </div>
                     <div className="grid md:grid-cols-2 md:gap-6">
                         <div className="relative z-0 w-full mb-6 group">

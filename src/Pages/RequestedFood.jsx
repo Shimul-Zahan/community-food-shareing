@@ -28,7 +28,7 @@ const RequestedFood = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // console.log('delete clicked', id)
-                const res = axios.delete(`http://localhost:5000/delete-requested-food/${id}`)
+                const res = axios.delete(`https://food-shareing-serversite.vercel.app/delete-requested-food/${id}`)
                 // console.log(res.data)
                 Swal.fire({
                     title: "Deleted!",

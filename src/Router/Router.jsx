@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: '/view-details/:id',
                 element: <PrivateRoute><SingleFood /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/view-details/${params.id}`),
+                loader: ({ params }) => fetch(`https://food-shareing-serversite.vercel.app/view-details/${params.id}`),
             },
             {
                 path: '/add-food',

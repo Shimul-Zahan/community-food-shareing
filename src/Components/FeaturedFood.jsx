@@ -17,13 +17,13 @@ const FeaturedFood = () => {
   }
 
   return (
-    <div className='my-20'>
+    <div className='my-20 container mx-auto'>
       <div className='flex justify-center items-between container mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-x-48'>
+        <div className='grid grid-cols-1 md:grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-x-32'>
           {
             data?.slice(0, 6)?.map(food =>
               <div key={food?._id} class="py-20 container mx-auto">
-                <div className="card card-compact w-96 bg-green-500 shadow-xl text-black">
+                <div className="card card-compact bg-green-500 shadow-xl text-black">
 
                   <div className='hover:opacity-100'>
                     <div className='relative'>

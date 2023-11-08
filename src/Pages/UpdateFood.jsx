@@ -16,7 +16,7 @@ const UpdateFood = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const singleFood = data?.find(food=> food?._id === id);
+        const singleFood = data?.find(food => food?._id === id);
         setFood(singleFood);
     }, [user])
 
@@ -35,7 +35,7 @@ const UpdateFood = () => {
         const donorEmail = user?.email;
 
         const updatedFood = { foodImage, foodName, quantity: parseInt(quantity), pickupLocation, expiredDate, additionalNotes, status, donatorImage, donatorName, donorEmail }
-        const res = await axios.put(`http://localhost:5000/update-food/${id}`, updatedFood)
+        const res = await axios.put(`https://food-shareing-serversite.vercel.app/update-food/${id}`, updatedFood)
         console.log(res.data);
         if (res.data.acknowledged) {
             e.target.reset();
@@ -78,7 +78,7 @@ const UpdateFood = () => {
                             <label class="peer-focus:font-medium absolute text-lg font-fontPrimary text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pickup Location</label>
                         </div>
                         <div className="relative z-0 w-full mb-6 group">
-                            <input type="text" defaultValue={food?.expiredDate}  name="expiredDate" class="block py-2.5 px-0 w-full text-lg font-fontPrimary text-green-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required />
+                            <input type="text" defaultValue={food?.expiredDate} name="expiredDate" class="block py-2.5 px-0 w-full text-lg font-fontPrimary text-green-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required />
                             <label class="peer-focus:font-medium absolute text-lg font-fontPrimary text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Expired Date</label>
                         </div>
                     </div>

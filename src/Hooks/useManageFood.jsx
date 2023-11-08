@@ -11,7 +11,7 @@ const useManageFood = () => {
         enabled: !!user?.email,
         queryKey: ["Manage Food"],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/manage-foods?email=${user?.email}`)
+            const res = await axios.get(`https://food-shareing-serversite.vercel.app/manage-foods?email=${user?.email}`, {withCredentials: true})
             return await res.data;
         }
     })

@@ -13,7 +13,7 @@ const ManageSingleFood = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/manage-single-food/${id}`)
+        fetch(`https://food-shareing-serversite.vercel.app/manage-single-food/${id}`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [id])
@@ -23,7 +23,7 @@ const ManageSingleFood = () => {
     }
 
     const approve = async (id, foodId) => {
-        const res = axios.patch(`http://localhost:5000/approve-request/${id}`, ({ status: 'delivered', foodId }));
+        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'delivered', foodId }));
         const data = await res.data;
         if (data.acknowledged) {
             Swal.fire({
@@ -38,8 +38,8 @@ const ManageSingleFood = () => {
     // icon: "warning",
 
     const dennyRequest = async (id) => {
-        const res = axios.patch(`http://localhost:5000/approve-request/${id}`, ({ status: 'rejected', }));
-        const data = await(await res).data;
+        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'rejected', }));
+        const data = await (await res).data;
         if (data.acknowledged) {
             Swal.fire({
                 title: "Great Job!!!",
@@ -74,13 +74,13 @@ const ManageSingleFood = () => {
                                 </div>
                                 <div className="avatar">
                                     <div className="w-24 rounded-full">
-                                        <img src={data?.requesterImage } />
+                                        <img src={data?.requesterImage} />
                                     </div>
                                 </div>
                             </div>
                             <div className='space-x-2 text-lg text-white'>
                                 <button className='bg-green-600 py-2 px-5 rounded-full'>{data?.status}</button>
-                                <button onClick={()=> approve(data?._id, data?.foodId)} className='bg-green-600 py-2 px-5 rounded-full'>Approve</button>
+                                <button onClick={() => approve(data?._id, data?.foodId)} className='bg-green-600 py-2 px-5 rounded-full'>Approve</button>
                                 <button onClick={() => dennyRequest(data?._id)} className='bg-red-600 py-2 px-5 rounded-full'>Dennied</button>
                             </div>
                         </div>

@@ -12,7 +12,7 @@ const useMyFoodRequest = () => {
         enabled: !!user?.email,
         queryKey: ["Request Food"],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/requested-foods?email=${user?.email}`);
+            const res = await axios.get(`https://food-shareing-serversite.vercel.app/requested-foods?email=${user?.email}`, {withCredentials: true});
             return await res.data;
         }
     })

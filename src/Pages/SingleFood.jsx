@@ -33,7 +33,7 @@ const SingleFood = () => {
 
     const requestFood = { foodName, foodImage, foodId, donorEmail, donorName, userEmail, requesterName, requesterImage, requestDate, pickUpLocation, expiredDate, additionalInfo, donation, status }
 
-    const res = await axios.post('http://localhost:5000/requested-foods', requestFood)
+    const res = await axios.post('https://food-shareing-serversite.vercel.app/requested-foods', requestFood)
     if (res.data.acknowledged) {
       e.target.reset();
       Swal.fire({

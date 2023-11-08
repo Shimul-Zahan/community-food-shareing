@@ -29,14 +29,14 @@ const AvailavleFoods = () => {
     }
 
     const search = async (e) => {
-        const res = await axios.get(`http://localhost:5000/avaiable-foods?search=${input}`)
+        const res = await axios.get(`https://food-shareing-serversite.vercel.app/avaiable-foods?search=${input}`)
         setFoods(res.data);
         setInput('');
 
     }
 
     const handleSort = async (e) => {
-        const res = await axios.get(`http://localhost:5000/avaiable-food?sort=${e.target.value}`)
+        const res = await axios.get(`https://food-shareing-serversite.vercel.app/avaiable-food?sort=${e.target.value}`)
         setFoods(res.data);
     }
 
@@ -66,12 +66,12 @@ const AvailavleFoods = () => {
                 </div>
             </div>
             <div className='flex justify-center items-between container mx-auto'>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-48'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-32'>
                     {
                         foods?.map(food =>
-                            food?.status === 'available' && 
+                            food?.status === 'available' &&
                             <div key={food?._id} class="py-20 container mx-auto">
-                                <div className="card card-compact w-96 bg-green-500 shadow-xl text-black">
+                                <div className="card card-compact bg-green-500 shadow-xl text-black">
 
                                     <div className='relative'>
                                         <figure>
