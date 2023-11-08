@@ -13,7 +13,12 @@ const RequestedFood = () => {
     const navigate = useNavigate();
     // console.log(data)
     if (isLoading) {
-        return <div>Loading Data...</div>
+        return <div className='h-screen w-full flex justify-center items-center'>
+            <span className="loading loading-spinner text-primary"></span>
+            <span className="loading loading-spinner text-secondary"></span>
+            <span className="loading loading-spinner text-accent"></span>
+            <span className="loading loading-spinner text-neutral"></span>
+        </div>
     }
 
     const cancelRequest = (id) => {
