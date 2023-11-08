@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 const Error = () => {
     return (
@@ -48,6 +49,9 @@ const Error = () => {
                 </h1>
 
                 <p className="mt-4 text-gray-500">We can't find that page.</p>
+                <Link to='/'>
+                    <button className='btn bg-green-600'>Back to Home</button>
+                </Link>
             </div>
         </div>
     )

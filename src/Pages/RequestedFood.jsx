@@ -28,14 +28,17 @@ const RequestedFood = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // console.log('delete clicked', id)
-                const res = axios.delete(`https://food-shareing-serversite.vercel.app/delete-requested-food/${id}`)
-                // console.log(res.data)
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-                navigate('/my-food-request');
+                axios.delete(`https://food-shareing-serversite.vercel.app/delete-requested-food/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            refetch();
+                        }
+                })
             }
         });
     }
@@ -54,11 +57,12 @@ const RequestedFood = () => {
                         <div key={food?._id} className='flex justify-start flex-col lg:flex-row items-center gap-5 border-2 rounded-sm px-2'>
                             <img src={food?.foodImage} className='lg:h-40 lg:w-40 rounded-sm' alt="" />
                             <div className='flex justify-between gap-20 items-center'>
-                                <div className='lg:text-lg font-fontPrimary space-y-3'>
+                                <div className='lg:text-lg font-fontPrimary space-y-1'>
                                     <h1>Donar Name: {food?.donorName}</h1>
                                     <h1>Pickup Location: {food?.pickUpLocation}</h1>
                                     <h1 className='text-red-600'>Expired Date: {food?.expiredDate}</h1>
                                     <h1>Requested Date: {food?.requestDate}</h1>
+                                        <h1>Donation Amount: {food?.donation}<span className='font-bold'>৳</span></h1>
                                 </div>
                                 <div className='space-y-3 text-base lg:text-lg'>
                                     <h1 className={`${food?.status === 'available' ? 'text-green-600' : 'text-red-600'} font-bold text-sm lg:text-lg`}>Status: {food?.status}</h1>
