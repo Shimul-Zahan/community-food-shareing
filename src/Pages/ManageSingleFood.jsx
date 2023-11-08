@@ -22,9 +22,9 @@ const ManageSingleFood = () => {
         return <div>Loading Data...</div>
     }
 
-    const approve = async (id) => {
-        const res = axios.patch(`http://localhost:5000/approve-request/${id}`, ({ status: 'delivered' }));
-        const data = await (await res).data;
+    const approve = async (id, foodId) => {
+        const res = axios.patch(`http://localhost:5000/approve-request/${id}`, ({ status: 'delivered', foodId }));
+        const data = await res.data;
         if (data.acknowledged) {
             Swal.fire({
                 title: "Great Job!!!",
@@ -37,8 +37,8 @@ const ManageSingleFood = () => {
 
     // icon: "warning",
 
-    const dennyRequest = async id => {
-        const res = axios.patch(`http://localhost:5000/approve-request/${id}`, ({ status: 'rejected' }));
+    const dennyRequest = async (id) => {
+        const res = axios.patch(`http://localhost:5000/approve-request/${id}`, ({ status: 'rejected', }));
         const data = await(await res).data;
         if (data.acknowledged) {
             Swal.fire({
@@ -50,9 +50,9 @@ const ManageSingleFood = () => {
         }
     }
 
-    // console.log(data)
+    console.log(data)
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto min-h-screen'>
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Feeding Neighbour | Manage single food</title>
@@ -80,7 +80,7 @@ const ManageSingleFood = () => {
                             </div>
                             <div className='space-x-2 text-lg text-white'>
                                 <button className='bg-green-600 py-2 px-5 rounded-full'>{data?.status}</button>
-                                <button onClick={()=> approve(data?._id)} className='bg-green-600 py-2 px-5 rounded-full'>Approve</button>
+                                <button onClick={()=> approve(data?._id, data?.foodId)} className='bg-green-600 py-2 px-5 rounded-full'>Approve</button>
                                 <button onClick={() => dennyRequest(data?._id)} className='bg-red-600 py-2 px-5 rounded-full'>Dennied</button>
                             </div>
                         </div>

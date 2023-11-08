@@ -8,7 +8,12 @@ const FeaturedFood = () => {
   // console.log(data[0])
 
   if (isLoading) {
-    return <div>Data Loading...</div>
+    return <div className='h-screen w-full flex justify-center items-center'>
+      <span className="loading loading-spinner text-primary"></span>
+      <span className="loading loading-spinner text-secondary"></span>
+      <span className="loading loading-spinner text-accent"></span>
+      <span className="loading loading-spinner text-neutral"></span>
+    </div>
   }
 
   return (
@@ -16,7 +21,7 @@ const FeaturedFood = () => {
       <div className='flex justify-center items-between container mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-x-48'>
           {
-            data.slice(0, 6)?.map(food =>
+            data?.slice(0, 6)?.map(food =>
               <div key={food?._id} class="py-20 container mx-auto">
                 <div className="card card-compact w-96 bg-green-500 shadow-xl text-black">
 

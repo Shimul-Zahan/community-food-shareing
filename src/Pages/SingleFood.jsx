@@ -5,6 +5,7 @@ import banner from '../assets/images/bg-image/assorted-different-dishes-black-su
 import cover from '../assets/images/bg-image/top-view-burguer-vs-fruit.jpg'
 import { MyAuthContext } from '../Context/AuthContext'
 import { Helmet } from 'react-helmet'
+import Swal from 'sweetalert2'
 
 const SingleFood = () => {
 

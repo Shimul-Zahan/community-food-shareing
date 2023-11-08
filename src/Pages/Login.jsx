@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import loginAnimation from '../assets/images/login-animation.json'
 import { Link, useNavigate } from 'react-router-dom'
 import bg from '../assets/images/logi.jpg'
@@ -10,13 +10,14 @@ import axios from 'axios'
 const Login = () => {
 
     const { emailLogin, googleLogin } = useContext(MyAuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
+        setError('')
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log({ email, password })
         
         emailLogin(email, password)
             .then(res => {
@@ -24,15 +25,17 @@ const Login = () => {
                 navigate('/');
                 // console.log(user);
             })
-            .then(err => console.log(err))
+            .catch(err => setError(err.message.slice(10, 100)))
 
     }
 
     const googleSignIn = () => {
         googleLogin()
             .then(res => navigate('/'))
-            .then(err => console.log(err));
+            .catch(err => setError(err.message.slice(10, 100)))
     }
+
+    console.log(error)
 
     return (
         <div className='min-h-screen bg-white bg-blend-overlay bg-opacity-80' style={{ backgroundImage: `url('${bg}')`, backgroundSize: 'cover' }}>
@@ -59,7 +62,9 @@ const Login = () => {
                                     <label className="block mb-2 font-medium text-gray-900 dark:text-white">Password</label>
                                     <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
                                 </div>
-
+                                {
+                                    error && <div className='text-red-600 text-base'>{ error }</div>
+                                }
                                 <div className="flex items-start">
                                     <div className="flex items-center h-5">
                                         <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="" />
