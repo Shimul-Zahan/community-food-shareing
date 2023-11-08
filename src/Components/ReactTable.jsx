@@ -70,13 +70,17 @@ const ReactTable = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log('delete clicked', id)
-                const res = axios.delete(`https://food-shareing-serversite.vercel.app/delete-food/${id}`)
-                refetch();
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+                axios.delete(`https://food-shareing-serversite.vercel.app/delete-food/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your addeded food has been deleted.",
+                                icon: "success"
+                            });
+                            refetch();
+                        }
+                })
             }
         });
     }

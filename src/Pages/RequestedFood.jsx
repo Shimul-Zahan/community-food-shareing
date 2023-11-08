@@ -33,12 +33,12 @@ const RequestedFood = () => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "Your requested food has been deleted.",
                                 icon: "success"
                             });
                             refetch();
                         }
-                })
+                    })
             }
         });
     }
@@ -62,7 +62,7 @@ const RequestedFood = () => {
                                     <h1>Pickup Location: {food?.pickUpLocation}</h1>
                                     <h1 className='text-red-600'>Expired Date: {food?.expiredDate}</h1>
                                     <h1>Requested Date: {food?.requestDate}</h1>
-                                        <h1>Donation Amount: {food?.donation}<span className='font-bold'>৳</span></h1>
+                                    <h1>Donation Amount: {food?.donation}<span className='font-bold'>৳</span></h1>
                                 </div>
                                 <div className='space-y-3 text-base lg:text-lg'>
                                     <h1 className={`${food?.status === 'available' ? 'text-green-600' : 'text-red-600'} font-bold text-sm lg:text-lg`}>Status: {food?.status}</h1>
