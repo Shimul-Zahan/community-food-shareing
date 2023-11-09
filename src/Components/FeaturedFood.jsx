@@ -24,7 +24,6 @@ const FeaturedFood = () => {
             data?.slice(0, 6)?.map(food =>
               <div key={food?._id} class="py-20 container mx-auto">
                 <div className="card card-compact bg-green-500 shadow-xl text-black">
-
                   <div className='hover:opacity-100'>
                     <div className='relative'>
                       <figure>

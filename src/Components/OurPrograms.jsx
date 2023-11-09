@@ -8,7 +8,7 @@ const OurPrograms = () => {
         <div className='my-5 lg:my-20 px-5'>
             <h1 className='text-2xl lg:text-7xl font-fontSecondary font-bold my-10 text-center'>Somr Of Our Programs</h1>
             <div className='flex justify-center items-center gap-10'>
-                <div className='container mx-auto grid grid-cols-1 gap-5 lg:grid-cols-3 justify-center items-center '>
+                <div className='container mx-auto lg:grid lg:grid-cols-3 flex-col gap-5 flex justify-center items-center '>
                     <div className="card card-compact w-96 shadow-xl text-black">
 
                         <div className='hover:opacity-100'>

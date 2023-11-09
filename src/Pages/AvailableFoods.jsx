@@ -69,7 +69,6 @@ const AvailavleFoods = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-32'>
                     {
                         foods?.map(food =>
-                            food?.status === 'available' &&
                             <div key={food?._id} class="py-20 container mx-auto">
                                 <div className="card card-compact bg-green-500 shadow-xl text-black">
 
