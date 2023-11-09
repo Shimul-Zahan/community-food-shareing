@@ -58,7 +58,6 @@ const RequestedFood = () => {
             <div className='container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 pt-10'>
                 {
                     data?.map(food =>
-                        food?.status === 'available' &&
                         <div key={food?._id} className='flex justify-start flex-col lg:flex-row items-center gap-5 border-2 rounded-sm px-2'>
                             <img src={food?.foodImage} className='lg:h-40 lg:w-40 rounded-sm' alt="" />
                             <div className='flex justify-between gap-20 items-center'>
@@ -75,6 +74,7 @@ const RequestedFood = () => {
                                 </div>
                             </div>
                         </div>
+                        
                     )
                 }
             </div>

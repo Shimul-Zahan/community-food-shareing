@@ -28,31 +28,23 @@ const ManageSingleFood = () => {
     }
 
     const approve = async (id, foodId) => {
-        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'delivered', foodId }));
-        const data = await res.data;
-        if (data.acknowledged) {
-            Swal.fire({
-                title: "Great Job!!!",
-                text: "Food Request Approved",
-                icon: "success"
-            });
-            navigate('/manage-my-food');
-        }
+        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'delivered', foodId }),{acknowledged: true});
+        Swal.fire({
+            title: "Congratulations!",
+            text: "Your Approved!!!",
+            icon: "success"
+        });
     }
 
     // icon: "warning",
 
     const dennyRequest = async (id) => {
-        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'rejected', }));
-        const data = await (await res).data;
-        if (data.acknowledged) {
-            Swal.fire({
-                title: "Great Job!!!",
-                text: "Food Request Approved",
-                icon: "warning"
-            });
-            navigate('/manage-my-food');
-        }
+        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'available', }), {acknowledged: true});
+        Swal.fire({
+            title: "Congratulations!",
+            text: "Cancel Request!!!",
+            icon: "success"
+        });
     }
 
     console.log(data)
@@ -63,7 +55,7 @@ const ManageSingleFood = () => {
                 <title>Feeding Neighbour | Manage single food</title>
             </Helmet>
             {
-                data.length !== 0 && data?.status == 'available' ?
+                data.length !== 0 ?
                     <div>
                         <h1 className='text-center py-5 lg:text-5xl font-bold font-fontSecondary'>Your sharing food is ready for you to Approve or Dennied.</h1>
                         <div className='flex justify-around items-center lg:pt-10'>

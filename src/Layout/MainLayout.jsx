@@ -13,6 +13,8 @@ const MainLayout = ({ children }) => {
             .then(err => console.log(err));
     }
 
+    // console.log(user)
+
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -58,6 +60,11 @@ const MainLayout = ({ children }) => {
                                         <button>Sign In</button>
                                     </NavLink>
                                 }
+                                <div className="avatar">
+                                    <div className="w-12 rounded-full ring ring-black ring-offset-base-100 ring-offset-2">
+                                        <img src={user?.photoURL} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,6 +100,11 @@ const MainLayout = ({ children }) => {
                             <button>Sign In</button>
                         </NavLink>
                     }
+                    <div className="avatar">
+                        <div className="w-12 rounded-full ring ring-black ring-offset-base-100 ring-offset-2">
+                            <img src={user?.photoURL} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

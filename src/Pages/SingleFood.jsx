@@ -29,9 +29,8 @@ const SingleFood = () => {
     const expiredDate = form.expiredDate.value;
     const additionalInfo = form.additionalInfo.value;
     const donation = form.donation.value;
-    const status = food?.status;
 
-    const requestFood = { foodName, foodImage, foodId, donorEmail, donorName, userEmail, requesterName, requesterImage, requestDate, pickUpLocation, expiredDate, additionalInfo, donation, status }
+    const requestFood = { foodName, foodImage, foodId, donorEmail, donorName, userEmail, requesterName, requesterImage, requestDate, pickUpLocation, expiredDate, additionalInfo, donation, status: 'pending' }
 
     const res = await axios.post('https://food-shareing-serversite.vercel.app/requested-foods', requestFood)
     if (res.data.acknowledged) {
