@@ -28,7 +28,7 @@ const ManageSingleFood = () => {
     }
 
     const approve = async (id, foodId) => {
-        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'delivered', foodId }),{acknowledged: true});
+        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'delivered', foodId }), { acknowledged: true });
         Swal.fire({
             title: "Congratulations!",
             text: "Your Approved!!!",
@@ -39,7 +39,7 @@ const ManageSingleFood = () => {
     // icon: "warning",
 
     const dennyRequest = async (id) => {
-        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'available', }), {acknowledged: true});
+        const res = axios.patch(`https://food-shareing-serversite.vercel.app/approve-request/${id}`, ({ status: 'available', }), { acknowledged: true });
         Swal.fire({
             title: "Congratulations!",
             text: "Cancel Request!!!",
