@@ -1,6 +1,5 @@
-# Feeding Neighbour
-# Live site link: https://community-food-sharing-36bb7.web.app/ 
-# Some features of my site
+
+# Some features of my website
 * Any user can share food if he/she logged in
 * User can see details of indivisual food 
 * Here is food request system 
@@ -12,3 +11,13 @@
 * User can search a food using food name or any alphabate is it's exist
 * Backend has a strong Json Web Security
 * Every work done its show you a marvelous toast message
+
+# Use Technologics
+.Tailwind CSS .Javascript .React Js .Node Js .Express Js .MongoDB .Stripe .Firebase .Jwt .Mui .Axios .Tanstack Query
+
+# Web Tools
+.Git .Github .Surge .Vervcel
+
+# Name : Feeding Neighbour
+
+# Live site link: https://terrific-territory.surge.sh/
